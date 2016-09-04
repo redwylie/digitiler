@@ -1,0 +1,168 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Study Details Frag</title>
+</head>
+<body>
+
+<!-- ***********************************************************************   -->
+<!-- ***** CARD MODE LAYOUT FRAGMENT ***************************************   -->
+<!-- ***********************************************************************   -->
+<div th:fragment="card">
+   <a th:href="'study?study='+${{studyID}}" class="card-link">
+    <div class="panel panel-default card">
+        <div class="panel-heading " th:style="${img}">
+            <div th:if="${status}">
+                <div class="ribbon-wrapper">
+                    <div class="ribbon" th:classappend="'ribbon-'+${status}">
+                        <span th:if="${status} == 'enrolled'">
+                            <span th:text="${qualified}">1</span>
+                            <span th:text="#{label.of}">of</span>
+                            <span th:text="${goal}">1</span></span>
+                        <span th:if="${status} != 'enrolled'" th:text="#{label.card.ribbon.+${status}}">Status</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel-body">
+            <div class="row copy">
+                <div class="col-sm-12">
+                    <h1><span th:text="${title}">Title</span></h1>
+                    <p><span th:text="${copy}">Copy</span></p>
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+            <div class="row">
+                <div class="col-md-4">
+                    <dl>
+                        <dt><span th:text="${gender}">Gender</span></dt>
+                        <dd th:text="#{label.gender}">gender</dd>
+                    </dl>
+                </div><!-- .col -->
+
+                 <div class="col-md-4">
+                    <dl>
+                        <dt><span th:text="${age}">Ages</span></dt>
+                        <dd th:text="#{label.ages}">age</dd>
+                    </dl>
+                </div><!-- .col -->
+
+                 <div class="col-md-4">
+                    <dl>
+                        <dt><span th:text="${time}">Time</span></dt>
+                        <dd th:text="#{label.time-required}">time required</dd>
+                    </dl>
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- <span class="label label-default"><span th:text="${institution}">Institution</span></span> -->
+                    <span class="label label-primary label-alpha" th:classappend="'label-' + ${tagAlpha}"><span th:text="${tagAlpha}">Tag 1</span></span>
+                    <span class="label label-success label-bravo" th:classappend="'label-' + ${tagBravo}"><span th:text="${tagBravo}">Tag 2</span></span>
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+        </div><!-- .panel-body -->
+
+        <div class="panel-footer">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object profile img-circle" src="/assets/images/profile/avatar-alpha.png" th:src="${contactAvatar}" />
+                    </a>
+                </div>
+                    <div class="media-body">
+                        <h2 class="media-heading"><span th:text="${contactName}">Contact Name</span></h2>
+                        <p>
+                            <span th:text="${contactInstitution}">Institution</span> <br/>
+                            <span th:text="${contactDepartment}">Department</span>
+                        </p>
+                    </div>
+            </div>                
+        </div><!-- .panel-footer -->
+        
+    </div><!-- .panel -->
+   </a>
+</div><!-- .th:fragment card -->
+
+
+<!-- ***********************************************************************   -->
+<!-- ***** STUDY MODE LAYOUT FRAGMENT **************************************   -->
+<!-- ***********************************************************************   -->
+<div th:fragment="study">
+
+<div class="study">
+
+<div class="section first-section">
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-8">			
+	            <h1><span th:text="${title}">Title</span></h1>
+			</div><!-- .col -->
+		</div><!-- .row -->
+
+		<div class="row">
+			<div class="col-sm-8">
+		
+	        	<img class="img-responsive study-img" src="/assets/images/profile/avatar-alpha.png" th:src="'/assets/images/cards/' + ${img2}" />
+				
+	        	<div class="row">
+	        		<div class="col-sm-12">
+	        			<p><span th:text="${copy}">Copy</span></p>
+					</div><!-- .col -->
+				</div><!-- .row -->
+
+	        	<div class="row row-tags">
+	                <div class="col-sm-12">
+	                    <span class="label label-default"><span th:text="${institution}">Institution</span></span>
+	                    <span class="label label-primary label-alpha" th:classappend="'label-' + ${tagAlpha}"><span th:text="${tagAlpha}">Tag 1</span></span>
+	                    <span class="label label-success label-bravo" th:classappend="'label-' + ${tagBravo}"><span th:text="${tagBravo}">Tag 2</span></span>
+	                </div><!-- .col -->
+	            </div><!-- .row -->
+	        	
+			</div><!-- .col -->
+
+			<div class="col-sm-4">
+				
+			</div><!-- .col -->
+
+		</div><!-- .row -->
+
+	</div><!-- .container -->
+
+</div><!-- .section -->
+
+
+
+</div>
+
+</div><!-- .th-fragment -->
+
+
+<!-- ***********************************************************************   -->
+<!-- ***** HERO MODE LAYOUT FRAGMENT **************************************   -->
+<!-- ***********************************************************************   -->
+<div th:fragment="hero">
+    <a th:href="'study?study='+${{studyID}}" class="jumbotron-link">
+    <div class="jumbotron jumbotron-study" th:style="${img}">
+        <div class="container-fluid">
+            <h1><span th:text="${title}">Title</span></h1>
+            <div class="row row-tags">
+                    <div class="col-sm-12">
+                        <span class="label label-default"><span th:text="${institution}">Institution</span></span>
+                        <span class="label label-primary label-alpha" th:classappend="'label-' + ${tagAlpha}"><span th:text="${tagAlpha}">Tag 1</span></span>
+                        <span class="label label-success label-bravo" th:classappend="'label-' + ${tagBravo}"><span th:text="${tagBravo}">Tag 2</span></span>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .jumbotron -->
+    </a>
+</div><!-- .th-fragment -->
+
+</body>
+</html>

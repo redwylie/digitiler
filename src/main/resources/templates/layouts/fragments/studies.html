@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Study Details Frag</title>
+</head>
+<body>
+
+<div th:fragment="alpha">
+	<div th:include="@{/layouts/fragments/study} :: ${mode} (
+        studyID='alpha',
+        img='background-image: url(/assets/images/cards/Stress.jpg);',
+        img2='Stress.jpg',
+        title='Stress and the Nervous System: Evaluating the effect of ACTH-infusion on autonomic response, pain, memory, and immune function', 
+        copy='To understand the effect of stress on the body. We will evaluate changes in the nervous system, sensation, memory, and immune function before and after giving you a stress hormone called ACTH.',
+        gender='Male/Female',
+        age='18-55',
+        time='5 hours',
+        qualified='121',
+        goal='200',
+        studyIncludes='Surveys, MRI',
+        enrollmentClosingUnit='14',
+        enrollmentClosingLabel='days',
+        institution='Massachusetts General Hospital',
+        tagAlpha='stress',
+        tagBravo='adult',
+        contactName='Cheryl Jefferson, MD',
+        contactTitle='Reasearch Coordinator',
+        contactPhone='617-726-2000',
+        contactEmail='ncdavis@partners.org ',
+        contactInstitution='Massachusetts General Hospital',
+        contactDepartment='Center for Anxiety and Traumatic Stress Disorders',
+        contactAvatar='/assets/images/profile/cheryl.png',
+        status='new'
+    )"></div>
+</div>
+
+
+</body>
+</html>

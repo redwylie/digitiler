@@ -1,0 +1,32 @@
+{
+  "name": "digitiler",
+  "version": "1.0.0",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "grunt-sync": "^0.6.2",
+    "ng-country-select": "^0.1.4",
+    "ng2-bs3-modal": "^0.1.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "systemjs": "0.19.20",
+    "typescript": "1.7.5"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sync": "^0.6.2",
+    "jit-grunt": "^0.10.0"
+  },
+  "description": "site for digitiler",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": ""
+}
